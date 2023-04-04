@@ -1,0 +1,7 @@
+{
+  "name": "ionic-firbase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
