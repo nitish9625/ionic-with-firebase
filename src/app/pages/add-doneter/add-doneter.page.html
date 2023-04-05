@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{id?'Update':'Add'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <form [formGroup]="doneterForm" (ngSubmit)="submit()">
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Boold Group</ion-label>
+    <ion-input type="text" formControlName="booldGroup"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-textarea type="text" formControlName="address"></ion-textarea>
+  </ion-item>
+  <ion-button type="submit">{{id?'Update':'Submit'}}</ion-button>
+ </form>
+</ion-content>

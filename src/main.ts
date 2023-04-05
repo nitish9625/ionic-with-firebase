@@ -7,10 +7,11 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth, initializeAuth, indexedDBLocalPersistence } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { Capacitor } from '@capacitor/core';
 
 
 
@@ -22,7 +23,15 @@ bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     importProvidersFrom(IonicModule.forRoot({}), provideFirebaseApp(()=> initializeApp(environment.firebase)),
-    provideAuth(()=> getAuth()),
+    provideAuth( ()=> {
+      if(Capacitor.isNativePlatform()){
+        return initializeAuth(getApp(),{
+          persistence:indexedDBLocalPersistence
+        });
+      }else{
+        return getAuth();
+      }
+    }),
     provideFirestore(()=> getFirestore()),
     provideStorage(()=> getStorage())
     ),

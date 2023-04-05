@@ -13,8 +13,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class MenuPage implements OnInit {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
+    { title: 'profile', url: '/menu/profile', icon: 'mail' },
+    { title: 'Doneter List', url: '/menu/doneter-list', icon: 'paper-plane' },
     { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
     { title: 'Archived', url: '/folder/archived', icon: 'archive' },
     { title: 'Trash', url: '/folder/trash', icon: 'trash' },

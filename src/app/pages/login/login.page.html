@@ -8,10 +8,12 @@
   <form [formGroup]="credentials" (ngSubmit)="login()">
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-      <!-- <ion-note slot="error" *ngIf="(email?.dirty|| email?.touched) email.errors">Email is invalid</ion-note> -->
+      <!-- <ion-note slot="error" *ngIf="(email.dirty|| email.touched) email.errors">Email is invalid</ion-note> -->
+      <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email is invalid</ion-note>
     </ion-item>
     <ion-item lines="solid" class="ion-margin-bottom">
       <ion-input type="password" placeholder="password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Password is invalid</ion-note>
     </ion-item>
 
     <ion-button type="submit" expand="full" [disabled]="!credentials.valid">login</ion-button>

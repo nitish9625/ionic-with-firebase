@@ -21,8 +21,24 @@ export const routes: Routes = [
   },
   {
     path: 'menu',
-    loadComponent: () => import('./pages/menu/menu.page').then( m => m.MenuPage),
-    ...canActivate(redirectUnauthorizedToLogin),
+    loadChildren:() => import('./pages/menu/menu.routes').then((m)=> m.routes),
+    ...canActivate(redirectUnauthorizedToLogin)
 
   },
+  {
+    path: 'add-doneter',
+    loadComponent: () => import('./pages/add-doneter/add-doneter.page').then( m => m.AddDoneterPage),
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'add-doneter/:id',
+    loadComponent: () => import('./pages/add-doneter/add-doneter.page').then( m => m.AddDoneterPage),
+    ...canActivate(redirectUnauthorizedToLogin)
+  }
+
+
+
+
+
+
 ];
