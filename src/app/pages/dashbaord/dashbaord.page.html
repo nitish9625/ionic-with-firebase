@@ -1,18 +1,17 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+
 
 <ion-content [fullscreen]="true">
+<div style="margin-top: 10px; margin-bottom: 10px;">
   <swiper-container [pagination]="true" [autoplay]="true">
     <swiper-slide *ngFor="let image of images">
       <ion-img [src]="image" style="height: 200px; width: 100%; object-fit: cover !important;"></ion-img>
      </swiper-slide>
   </swiper-container>
-  <div class="ion-text-center" style="margin-top: 10px;">
-    <ion-button [routerLink]="['/login']" shape="round" color="danger">Login</ion-button>
- <ion-button [routerLink]="['/donner']" shape="round" color="danger">Donner List</ion-button>
-  </div>
-
+</div>
+<ion-card>
+ <ion-img class="login-img" [routerLink]="['/login']" src="assets/image/login.jpg"></ion-img>
+</ion-card>
+<ion-card>
+  <ion-img class="login-img" [routerLink]="['/donner']" src="assets/image/doner-list.jpg"></ion-img>
+</ion-card>
 </ion-content>

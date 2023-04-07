@@ -1,21 +1,20 @@
-ion-avatar{
-  width: 128px;
-  height: 128px;
-}
-.preview{
-  margin-top: 50px;
+
+
+.card-boold{
   display: flex;
-  justify-content: center;
+    justify-content: space-between;
+    font-size: 15ppx;
+    font-size: 16px;
+    font-weight: 500;
+}
+ion-card{
+  --background: #efd6c5;
+    color: #000;
+      ion-card-title{
+        color: #000;
+      }
+      ion-card-subtitle{
+        color: #000;
+      }
 }
 
-.fallback{
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  background: #bfbfbf;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-}

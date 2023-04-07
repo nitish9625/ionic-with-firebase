@@ -13,5 +13,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>Home Page</p>
+  <div class="ion-text-center">
+    <h2>Your Appointment</h2>
+  </div>
+
+ <ion-card *ngFor="let donner of donerList">
+  <div class="ion-text-center">
+    <ion-card-title >{{donner.name}}</ion-card-title>
+    <ion-card-subtitle> Appointment: {{donner.appointment}}</ion-card-subtitle>
+        </div>
+
+        <ion-card-content>
+          <p class="card-boold">Boold Group:  <span>{{donner.booldGroup}}</span> </p>
+          <p class="card-boold">Address: <span>{{donner.address}}</span></p>
+          <p class="card-boold">Age: <span>{{donner.age}}</span></p>
+
+
+
+
+        </ion-card-content>
+ </ion-card>
 </ion-content>

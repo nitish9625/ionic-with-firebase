@@ -1,0 +1,14 @@
+.card-boold{
+  display: flex;
+    justify-content: space-between;
+    font-size: 15ppx;
+    font-size: 16px;
+    font-weight: 500;
+}
+ion-card{
+  --background: #efd6c5;
+    color: #000;
+      ion-card-title{
+        color: #000;
+      }
+}

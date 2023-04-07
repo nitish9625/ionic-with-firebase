@@ -15,8 +15,8 @@ export class MenuPage implements OnInit {
   public appPages = [
     { title: 'Home', url: '/', icon: 'archive' },
     { title: 'Dashboard', url: '/menu', icon: 'archive' },
-    { title: 'profile', url: '/menu/profile', icon: 'mail' },
-    { title: 'Donner List', url: '/menu/doneter-list', icon: 'paper-plane' },
+    { title: 'Profile', url: '/menu/profile', icon: 'mail' },
+    { title: 'Donor List', url: '/menu/doneter-list', icon: 'paper-plane' },
   ];
   constructor() { }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AddUserListService } from 'src/app/core/add-user-list.service';
 import { LoadingController } from '@ionic/angular';
@@ -21,9 +21,10 @@ export class AddDoneterPage implements OnInit {
 
 
     this.doneterForm = this.fb.group({
-      name:[''],
-      booldGroup:[''],
-      address:['']
+      name:['', Validators.required],
+      booldGroup:['', Validators.required],
+      address:['', Validators.required],
+      age:['', Validators.required]
     })
    }
 
@@ -35,6 +36,9 @@ export class AddDoneterPage implements OnInit {
    }
    get address(){
     return this.doneterForm.get("address") as FormControl;
+   }
+   get age(){
+    return this.doneterForm.get('age') as FormControl;
    }
 
   ngOnInit() {
@@ -50,6 +54,7 @@ export class AddDoneterPage implements OnInit {
       this.name.setValue(res.name);
       this.booldGroup.setValue(res.booldGroup);
       this.address.setValue(res.address);
+      this.age.setValue(res.age);
     })
   }
 

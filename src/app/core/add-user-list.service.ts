@@ -7,6 +7,7 @@ interface AddDoneter{
   name: string;
   booldGroup: string;
   address: string;
+  age:string;
   uid?:string;
 }
 
@@ -37,6 +38,7 @@ export class AddUserListService {
       name: data.name,
       booldGroup: data.booldGroup,
       address: data.address,
+      age: data.age,
       uid: user?.uid
     }
     const notesRef = collection(this.sf, 'doneter');

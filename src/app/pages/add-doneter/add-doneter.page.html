@@ -3,24 +3,41 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{id?'Update':'Add'}}</ion-title>
+    <ion-title>{{id?'Update Doner':'Add Doner'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
  <form [formGroup]="doneterForm" (ngSubmit)="submit()">
   <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input type="text" formControlName="name"></ion-input>
+    <ion-input label="Name" labelPlacement="floating" type="text" formControlName="name"></ion-input>
+    <ion-note slot="error" *ngIf="(name?.dirty || name?.touched) && name?.errors">Name is required.</ion-note>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Boold Group</ion-label>
-    <ion-input type="text" formControlName="booldGroup"></ion-input>
+    <ion-select label="Boold Group" labelPlacement="floating" placeholder="Select Boold Group" formControlName="booldGroup">
+      <ion-select-option value="A+">A+</ion-select-option>
+      <ion-select-option value="A-">A-</ion-select-option>
+      <ion-select-option value="B+">B+</ion-select-option>
+      <ion-select-option value="B-">B-</ion-select-option>
+      <ion-select-option value="O+">O+</ion-select-option>
+      <ion-select-option value="O-">O-</ion-select-option>
+      <ion-select-option value="AB+">AB+</ion-select-option>
+      <ion-select-option value="AB-">AB-</ion-select-option>
+     </ion-select>
+     <ion-note slot="error" *ngIf="(booldGroup?.dirty || booldGroup?.touched) && booldGroup?.errors">Boold Group is required.</ion-note>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Address</ion-label>
-    <ion-textarea type="text" formControlName="address"></ion-textarea>
+    <!-- <ion-label position="floating">Address</ion-label> -->
+    <ion-textarea label="Address" labelPlacement="floating"  type="text" formControlName="address"></ion-textarea>
+    <ion-note slot="error" *ngIf="(address?.dirty || address?.touched) && address?.errors">Boold Group is required.</ion-note>
   </ion-item>
-  <ion-button type="submit">{{id?'Update':'Submit'}}</ion-button>
+  <ion-item>
+    <ion-input label="Age" labelPlacement="floating" type="date" formControlName="age"></ion-input>
+    <ion-note slot="error" *ngIf="(age?.dirty || age?.touched) && age?.errors">Please select age.</ion-note>
+  </ion-item>
+  <div class="ion-text-center">
+  <ion-button  type="submit" color="success" shape="round" [disabled]="!doneterForm.valid">{{id?'Update':'Submit'}}</ion-button>
+  </div>
+
  </form>
 </ion-content>

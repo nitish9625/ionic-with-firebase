@@ -5,27 +5,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">First Name</ion-label>
-      <ion-input type="text" required></ion-input>
+  <ion-card>
+    <form [formGroup]="credentials" (ngSubmit)="register()">
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      <!-- <ion-note slot="error" *ngIf="(email.dirty|| email.touched) email.errors">Email is invalid</ion-note> -->
+      <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email is invalid</ion-note>
     </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" required></ion-input>
+    <ion-item lines="solid" class="ion-margin-bottom">
+      <ion-input type="password" placeholder="password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Password is invalid</ion-note>
     </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
-      </ion-col>
-    </ion-row>
+    <div class="ion-text-center">
+      <ion-button type="submit" shape="round" [disabled]="!credentials.valid">Register</ion-button>
+    <ion-button type="button" shape="round" color="danger" [routerLink]="['/login']" >Login</ion-button>
+    </div>
   </form>
+
+  </ion-card>
+  <div class="ion-text-right">
+    <a [routerLink]="['/']">Go to Home</a>
+      </div>
+
 </ion-content>

@@ -14,15 +14,23 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let item of allList">
-    <ion-card-title>{{item.name}}</ion-card-title>
+    <div class="ion-text-center">
+<ion-card-title >{{item.name}}</ion-card-title>
+    </div>
+
     <ion-card-content>
-      <p>Boold Group: {{item.booldGroup}}</p>
-      <p>Address: {{item.address}}</p>
-      <ion-buttons slot="end">
-        <ion-button [routerLink]="['/add-doneter', item.id]">
-          <ion-icon slot="icon-only" name="create"></ion-icon>
+      <p class="card-boold">Boold Group:  <span>{{item.booldGroup}}</span> </p>
+      <p class="card-boold">Address: <span>{{item.address}}</span></p>
+      <p class="card-boold">Age: <span>{{item.age}}</span></p>
+        <div class="ion-text-end">
+          <!-- <ion-buttons> -->
+            <ion-button [routerLink]="['/add-doneter', item.id]">
+          <ion-icon size="large" slot="icon-only" name="create"></ion-icon>
         </ion-button>
-      </ion-buttons>
+          <!-- </ion-buttons> -->
+        </div>
+
+
     </ion-card-content>
   </ion-card>
 </ion-content>
