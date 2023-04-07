@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FirestoreModule } from '@angular/fire/firestore';
-
+import { register } from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-root',

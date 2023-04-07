@@ -24,11 +24,9 @@ export class AvatarService {
   }
 
   updateProfile(displayName:string){
-    const userprofile:any = this.auth.currentUser
-
+    const userprofile:any = this.auth.currentUser;
    return updateProfile(userprofile, {
       displayName: displayName,
-
     });
 
 

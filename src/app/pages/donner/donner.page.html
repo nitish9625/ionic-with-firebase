@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Donner</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar show-clear-button="focus" (ionChange)="handleChange($event)" (ionClear)="clear()"></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar>
+   <ion-select placeholder="Select Boold Group" (ionChange)="handleChange($event)" [(ngModel)]="booldGroup">
+    <ion-select-option value="A+">A+</ion-select-option>
+    <ion-select-option value="A-">A-</ion-select-option>
+    <ion-select-option value="B+">B+</ion-select-option>
+    <ion-select-option value="B-">B-</ion-select-option>
+    <ion-select-option value="O+">O+</ion-select-option>
+    <ion-select-option value="O-">O-</ion-select-option>
+    <ion-select-option value="AB+">AB+</ion-select-option>
+    <ion-select-option value="AB-">AB-</ion-select-option>
+   </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let item of allList">
+    <ion-card-title>{{item.name}}</ion-card-title>
+    <ion-card-content>
+      <p>Boold Group: {{item.booldGroup}}</p>
+      <p>Address: {{item.address}}</p>
+    </ion-card-content>
+  </ion-card>
+  <p *ngIf="this.allList?.length === 0">No Data found</p>
+</ion-content>

@@ -5,13 +5,13 @@ import {
   redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = ()=> redirectLoggedInTo(['menu'])
 
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage),
     ...canActivate(redirectLoggedInToHome)
   },
@@ -34,7 +34,17 @@ export const routes: Routes = [
     path: 'add-doneter/:id',
     loadComponent: () => import('./pages/add-doneter/add-doneter.page').then( m => m.AddDoneterPage),
     ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'donner',
+    loadComponent: () => import('./pages/donner/donner.page').then( m => m.DonnerPage)
+  },
+  {
+    path: '',
+    loadComponent: () => import('./pages/dashbaord/dashbaord.page').then( m => m.DashbaordPage)
   }
+
+
 
 
 
